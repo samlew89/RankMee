@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		59D617F21A8FF5F700AABE35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D617F11A8FF5F700AABE35 /* AppDelegate.swift */; };
+		59D617F41A8FF5F700AABE35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D617F31A8FF5F700AABE35 /* ViewController.swift */; };
+		59D617F71A8FF5F700AABE35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D617F51A8FF5F700AABE35 /* Main.storyboard */; };
+		59D617F91A8FF5F700AABE35 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D617F81A8FF5F700AABE35 /* Images.xcassets */; };
+		59D617FC1A8FF5F700AABE35 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59D617FA1A8FF5F700AABE35 /* LaunchScreen.xib */; };
+		59D618081A8FF5F800AABE35 /* RankMeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D618071A8FF5F800AABE35 /* RankMeeTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		59D618021A8FF5F800AABE35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59D617E41A8FF5F700AABE35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59D617EB1A8FF5F700AABE35;
+			remoteInfo = RankMee;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		59D617EC1A8FF5F700AABE35 /* RankMee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RankMee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D617F01A8FF5F700AABE35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59D617F11A8FF5F700AABE35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		59D617F31A8FF5F700AABE35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		59D617F61A8FF5F700AABE35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		59D617F81A8FF5F700AABE35 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		59D617FB1A8FF5F700AABE35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		59D618011A8FF5F800AABE35 /* RankMeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RankMeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D618061A8FF5F800AABE35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59D618071A8FF5F800AABE35 /* RankMeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankMeeTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		59D617E91A8FF5F700AABE35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59D617FE1A8FF5F800AABE35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		59D617E31A8FF5F700AABE35 = {
+			isa = PBXGroup;
+			children = (
+				59D617EE1A8FF5F700AABE35 /* RankMee */,
+				59D618041A8FF5F800AABE35 /* RankMeeTests */,
+				59D617ED1A8FF5F700AABE35 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		59D617ED1A8FF5F700AABE35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				59D617EC1A8FF5F700AABE35 /* RankMee.app */,
+				59D618011A8FF5F800AABE35 /* RankMeeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		59D617EE1A8FF5F700AABE35 /* RankMee */ = {
+			isa = PBXGroup;
+			children = (
+				59D617F11A8FF5F700AABE35 /* AppDelegate.swift */,
+				59D617F31A8FF5F700AABE35 /* ViewController.swift */,
+				59D617F51A8FF5F700AABE35 /* Main.storyboard */,
+				59D617F81A8FF5F700AABE35 /* Images.xcassets */,
+				59D617FA1A8FF5F700AABE35 /* LaunchScreen.xib */,
+				59D617EF1A8FF5F700AABE35 /* Supporting Files */,
+			);
+			path = RankMee;
+			sourceTree = "<group>";
+		};
+		59D617EF1A8FF5F700AABE35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				59D617F01A8FF5F700AABE35 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		59D618041A8FF5F800AABE35 /* RankMeeTests */ = {
+			isa = PBXGroup;
+			children = (
+				59D618071A8FF5F800AABE35 /* RankMeeTests.swift */,
+				59D618051A8FF5F800AABE35 /* Supporting Files */,
+			);
+			path = RankMeeTests;
+			sourceTree = "<group>";
+		};
+		59D618051A8FF5F800AABE35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				59D618061A8FF5F800AABE35 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		59D617EB1A8FF5F700AABE35 /* RankMee */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59D6180B1A8FF5F800AABE35 /* Build configuration list for PBXNativeTarget "RankMee" */;
+			buildPhases = (
+				59D617E81A8FF5F700AABE35 /* Sources */,
+				59D617E91A8FF5F700AABE35 /* Frameworks */,
+				59D617EA1A8FF5F700AABE35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RankMee;
+			productName = RankMee;
+			productReference = 59D617EC1A8FF5F700AABE35 /* RankMee.app */;
+			productType = "com.apple.product-type.application";
+		};
+		59D618001A8FF5F800AABE35 /* RankMeeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59D6180E1A8FF5F800AABE35 /* Build configuration list for PBXNativeTarget "RankMeeTests" */;
+			buildPhases = (
+				59D617FD1A8FF5F800AABE35 /* Sources */,
+				59D617FE1A8FF5F800AABE35 /* Frameworks */,
+				59D617FF1A8FF5F800AABE35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59D618031A8FF5F800AABE35 /* PBXTargetDependency */,
+			);
+			name = RankMeeTests;
+			productName = RankMeeTests;
+			productReference = 59D618011A8FF5F800AABE35 /* RankMeeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		59D617E41A8FF5F700AABE35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Sam Lewis";
+				TargetAttributes = {
+					59D617EB1A8FF5F700AABE35 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					59D618001A8FF5F800AABE35 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 59D617EB1A8FF5F700AABE35;
+					};
+				};
+			};
+			buildConfigurationList = 59D617E71A8FF5F700AABE35 /* Build configuration list for PBXProject "RankMee" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 59D617E31A8FF5F700AABE35;
+			productRefGroup = 59D617ED1A8FF5F700AABE35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				59D617EB1A8FF5F700AABE35 /* RankMee */,
+				59D618001A8FF5F800AABE35 /* RankMeeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		59D617EA1A8FF5F700AABE35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59D617F71A8FF5F700AABE35 /* Main.storyboard in Resources */,
+				59D617FC1A8FF5F700AABE35 /* LaunchScreen.xib in Resources */,
+				59D617F91A8FF5F700AABE35 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59D617FF1A8FF5F800AABE35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		59D617E81A8FF5F700AABE35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59D617F41A8FF5F700AABE35 /* ViewController.swift in Sources */,
+				59D617F21A8FF5F700AABE35 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59D617FD1A8FF5F800AABE35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59D618081A8FF5F800AABE35 /* RankMeeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59D618031A8FF5F800AABE35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 59D617EB1A8FF5F700AABE35 /* RankMee */;
+			targetProxy = 59D618021A8FF5F800AABE35 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		59D617F51A8FF5F700AABE35 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59D617F61A8FF5F700AABE35 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		59D617FA1A8FF5F700AABE35 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59D617FB1A8FF5F700AABE35 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		59D618091A8FF5F800AABE35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		59D6180A1A8FF5F800AABE35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		59D6180C1A8FF5F800AABE35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RankMee/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		59D6180D1A8FF5F800AABE35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RankMee/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		59D6180F1A8FF5F800AABE35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RankMeeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RankMee.app/RankMee";
+			};
+			name = Debug;
+		};
+		59D618101A8FF5F800AABE35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RankMeeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RankMee.app/RankMee";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		59D617E71A8FF5F700AABE35 /* Build configuration list for PBXProject "RankMee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59D618091A8FF5F800AABE35 /* Debug */,
+				59D6180A1A8FF5F800AABE35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59D6180B1A8FF5F800AABE35 /* Build configuration list for PBXNativeTarget "RankMee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59D6180C1A8FF5F800AABE35 /* Debug */,
+				59D6180D1A8FF5F800AABE35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		59D6180E1A8FF5F800AABE35 /* Build configuration list for PBXNativeTarget "RankMeeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59D6180F1A8FF5F800AABE35 /* Debug */,
+				59D618101A8FF5F800AABE35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 59D617E41A8FF5F700AABE35 /* Project object */;
+}
