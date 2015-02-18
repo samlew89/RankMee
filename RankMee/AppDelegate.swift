@@ -15,7 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        var navigationBarAppearace = UINavigationBar.appearance()
+        
+        navigationBarAppearace.tintColor = UIColor.whiteColor()
+        navigationBarAppearace.barTintColor = UIColor.blueColor()
+        
+        // change navigation item title color
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        //To Change appearance of status bar - also made updates to info.plist
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         // Override point for customization after application launch.
+        
+        Parse.enableLocalDatastore()
+        //lets you put in a client specific id from parse.com
+        Parse.setApplicationId("0oiZrzLgvLDsh8rIQyr64EYSUb3LlWZteGr0YENP", clientKey: "meSC4vYkeHlSlPvODJdJj2yF9Qrr1cVjzARtYksn")
+        
+        /* [Optional] Track statistics around application opens.
+        [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+        */
+        
         return true
     }
 
