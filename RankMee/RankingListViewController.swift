@@ -10,6 +10,46 @@ import UIKit
 
 var typedNames: [String] = []
 
-class RankingListViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource{
+//uitableviewdelegate is unnecessary
+
+class RankingListViewController: UITableViewController, UIGestureRecognizerDelegate{
+    
+    var groupName = "";
+    var groupId = "";
+    //var groupObject:PFGroup
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NSLog("groupName: \(self.groupName)")
+        // start download of list items by group id
+        self.setLongpress();
+    }
+    
+    func setLongpress() {
+        var lpgr = UILongPressGestureRecognizer()
+        lpgr.delegate = self;
+        //lpgr.target = self;
+        //lpgt.action = @selec
+        
+        /*
+        from http://stackoverflow.com/questions/3924446/long-press-on-uitableview
+        
+        UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+        initWithTarget:self action:@selector(handleLongPress:)];
+        lpgr.minimumPressDuration = 2.0; //seconds
+        lpgr.delegate = self;
+        [self.myTableView addGestureRecognizer:lpgr];
+        [lpgr release];
+        */
+        
+    }
+    
+    //to implement the delegate protocol
+    func handleLongPress(gestureRecognizer:UILongPressGestureRecognizer) {
+        NSLog("long press yah!");
+    
+    }
+    
+    
 
 }
