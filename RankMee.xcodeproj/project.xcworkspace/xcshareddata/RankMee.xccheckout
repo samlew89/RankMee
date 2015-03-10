@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>195004E0-012F-424F-AC6A-F3568C79C97C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RankMee</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C9EED8F6A2A34F89787AC9BE5DAAC8B31477E5F9</key>
+		<string>https://github.com/samlew89/RankMee.git</string>
+		<key>D5128AD3D106A34DE67CAD015DE1A1E0EB454497</key>
+		<string>https://github.com/samlew89/RankMee.git/</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RankMee.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C9EED8F6A2A34F89787AC9BE5DAAC8B31477E5F9</key>
+		<string>../..</string>
+		<key>D5128AD3D106A34DE67CAD015DE1A1E0EB454497</key>
+		<string>../..RankMee</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/samlew89/RankMee.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C9EED8F6A2A34F89787AC9BE5DAAC8B31477E5F9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C9EED8F6A2A34F89787AC9BE5DAAC8B31477E5F9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RankMee</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D5128AD3D106A34DE67CAD015DE1A1E0EB454497</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RankMeeRankMee</string>
+		</dict>
+	</array>
+</dict>
+</plist>

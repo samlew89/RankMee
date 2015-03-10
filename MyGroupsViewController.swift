@@ -8,11 +8,13 @@
 
 import UIKit
 
-var typedGroups:[String] = []
 
-class MyGroupsViewController: UITableViewController {
+
+class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
     
     var users = [""]
+
+    var typedGroups:[String] = []
     
     //to refresh
     var refresher = UIRefreshControl()
@@ -39,9 +41,27 @@ class MyGroupsViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.Default, handler: { action in
             
             let newGroup: String = (alert.textFields![0] as UITextField).text
-            typedGroups.append(newGroup)
+        
+            // Add Parse Group Object
+            var group:PFObject = PFObject(className: "Groups")
+            
+            group["groups"] = self.addGroup
+            group["groupcreator"] = PFUser.currentUser()
+            
+            group.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError!) -> Void in
+                if (success) {
+                    
+                } else {
+                    // There was a problem, check error.description
+                    println("Error adding group to parse")
+                }
+            }
+
+            self.typedGroups.append(newGroup)
             
             self.tableView.reloadData()
+            
             
     }))
     
@@ -59,6 +79,8 @@ class MyGroupsViewController: UITableViewController {
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refresher)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
     }
     
@@ -81,14 +103,25 @@ class MyGroupsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return typedGroups.count
+        return self.typedGroups.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        cell.textLabel?.text = typedGroups[indexPath.row]
+        cell.textLabel?.text = self.typedGroups[indexPath.row]
+        println("cell for row \(indexPath.row)")
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath: NSIndexPath?) {
+        var selectedGroup = self.typedGroups[indexPath!.row]
+        println("selectRow: \(indexPath!.row), selectedGroup \(selectedGroup)")
+        var groupsViewController = RankingListViewController()
+        groupsViewController.groupName = selectedGroup
+        self.navigationController!.pushViewController(groupsViewController, animated: true)
+        
+        
     }
 }
 
