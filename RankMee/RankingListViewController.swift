@@ -15,11 +15,25 @@ class RankingListViewController: UITableViewController, UIGestureRecognizerDeleg
     var groupId = "";
     //var groupObject:PFGroup
     
+    var refresher = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         println("groupName: \(self.groupName)")
         // start download of list items by group id
         self.setLongpress();
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refresher)
+    }
+    
+    func refresh() {
+        
+        println("Table Refreshed")
+        refresher.endRefreshing()
+        self.tableView.reloadData()
+        
     }
     
     func setLongpress() {

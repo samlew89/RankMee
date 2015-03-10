@@ -38,28 +38,18 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func toggleSignup(sender: AnyObject) {
         
         if signupActive == true {
-            
             signupActive = false
-            
             signupLabel.text = "Use the form below to log in"
-            
             signupButton.setTitle("Log In!", forState: UIControlState.Normal)
-            
             alreadyRegistered.text = "Not Registered?"
-            
             signupToggleButton.setTitle("Sign Up", forState: UIControlState.Normal)
         } else {
             
             signupActive = true
-            
             signupLabel.text = "Use the form below to sign up"
-            
             signupButton.setTitle("Sign Up!", forState: UIControlState.Normal)
-            
             alreadyRegistered.text = "Already Registered?"
-            
             signupToggleButton.setTitle("Log In", forState: UIControlState.Normal)
-            
         }
     }
     
@@ -158,12 +148,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
         
        
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        if PFUser.currentUser() != nil {
-            self.performSegueWithIdentifier("signupseg", sender: self)
-        }
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

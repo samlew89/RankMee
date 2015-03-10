@@ -45,7 +45,7 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
             // Add Parse Group Object
             var group:PFObject = PFObject(className: "Groups")
             
-            group["groups"] = self.addGroup
+            group["title"] = newGroup
             group["groupcreator"] = PFUser.currentUser()
             
             group.saveInBackgroundWithBlock {
@@ -64,6 +64,8 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
             
             
     }))
+        
+        
     
     }
     
@@ -72,9 +74,7 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
         
         // Gets/Saves details of current user using core data
         println(PFUser.currentUser())
-        
         updateUsers()
-        
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
@@ -85,18 +85,65 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     func updateUsers() {
-        
+
         var query = PFUser.query()
         
         query.findObjectsInBackgroundWithBlock ({ (objects:[AnyObject]!, error:NSError!) -> Void in
             self.users.removeAll(keepCapacity:true)
-            
         })
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func refresh() {
+        
+        var query = PFQuery(className:"Groups")
+        query.whereKey("groupcreator", equalTo:PFUser.currentUser())
+        query.findObjectsInBackgroundWithBlock {
+            
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            
+            if error == nil {
+                
+                // The find succeeded.
+                
+                println("Successfully retrieved \(objects.count) scores.")
+                
+                // Do something with the found objects
+                
+                if let objects = objects as? [PFObject] {
+                    
+                    for object in objects {
+                        
+                        println(object.objectId)
+                        
+                        self.typedGroups.append(object["title"] as String)
+                        
+                    }
+                    
+                }
+                
+                println("Refreshing")
+                self.refresher.endRefreshing()
+                self.tableView.reloadData()
+                
+            } else {
+                
+                // Log details of the failure
+                
+                println("Error: \(error) \(error.userInfo!)")
+                
+            }
+            
+        }
+
+        
+    }
+    
+ 
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -123,5 +170,14 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
         
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        if PFUser.currentUser() == nil {
+            self.performSegueWithIdentifier("logout", sender: self)
+            
+        }
+    }
+    
 }
 
