@@ -129,16 +129,17 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="logout" id="PiF-xx-GT5"/>
+                        <segue destination="eml-lE-CwH" kind="show" identifier="eachgroupseg" id="yo1-8S-hcO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f14-cc-z8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966.5" y="129.5"/>
+            <point key="canvasLocation" x="1927.5" y="129.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Title-->
         <scene sceneID="8oX-8I-JQu">
             <objects>
-                <tableViewController id="eml-lE-CwH" sceneMemberID="viewController">
+                <tableViewController id="eml-lE-CwH" customClass="RankingListViewController" customModule="RankMee" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xgb-3i-t7m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,6 +157,13 @@
                             <outlet property="delegate" destination="eml-lE-CwH" id="wdi-eq-c3k"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="afD-76-OPf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="J0O-eq-tew">
+                            <connections>
+                                <action selector="addItem:" destination="eml-lE-CwH" id="pU0-tJ-phD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhs-Tn-ouA" userLabel="First Responder" sceneMemberID="firstResponder"/>

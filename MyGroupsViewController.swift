@@ -31,6 +31,10 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
     @IBAction func addGroup(sender: AnyObject) {
         
         var alert = UIAlertController(title: "Add New Group!", message: "What is it?", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { action -> Void in
+            //Cancel out of alert
+        }
+        alert.addAction(cancelAction)
         alert.addTextFieldWithConfigurationHandler({(textField:UITextField!) in
             textField.placeholder = "Name"
             textField.secureTextEntry = false
@@ -166,7 +170,7 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
         println("selectRow: \(indexPath!.row), selectedGroup \(selectedGroup)")
         var groupsViewController = RankingListViewController()
         groupsViewController.groupName = selectedGroup
-        self.navigationController!.pushViewController(groupsViewController, animated: true)
+        self.performSegueWithIdentifier("eachgroupseg", sender: self)
         
         
     }
