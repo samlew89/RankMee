@@ -12,10 +12,9 @@ import UIKit
 class RankingListViewController: UITableViewController, UIAlertViewDelegate {
     
     var typedItems:[String] = []
-    
+    var users = [""]
     var groupName = ""
     var groupId = ""
-    
     var refresher = UIRefreshControl()
     
     
@@ -38,12 +37,11 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
             let newItem: String = (alert.textFields![0] as UITextField).text
             
             // Add Parse Group Object
-            var rankedItems:PFObject = PFObject(className: "RankedItems")
+            var itemRank:PFObject = PFObject(className: "RankedItems")
             
-            rankedItems["itemName"] = newItem
-            rankedItems["rank"] = 2
-            
-            rankedItems.saveInBackgroundWithBlock {
+            itemRank["itemName"] = newItem
+            itemRank["groupOwner"] = PFObject(withoutDataWithClassName: "Groups", objectId: "title")
+            itemRank.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError!) -> Void in
                 if (success) {
                     
@@ -52,44 +50,96 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
                     println("Error adding group to parse")
                 }
             }
-            
+
             self.typedItems.append(newItem)
             
             self.tableView.reloadData()
 
             
         }))
-    
-    
-    func refresh() {
-        
-        println("Table Refreshed")
-        refresher.endRefreshing()
-        self.tableView.reloadData()
         
     }
-
     
-}
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = groupName
+        self.navigationItem.title = "List"
+        println(PFUser.currentUser())
+        updateUsers()
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refresher)
     }
     
+    func updateUsers() {
+        
+        var query = PFUser.query()
+        query.findObjectsInBackgroundWithBlock ({ (objects:[AnyObject]!, error:NSError!) -> Void in
+            self.users.removeAll(keepCapacity:true)
+        })
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    
+    func refresh() {
+        
+        var query = PFQuery(className:"RankedItems")
+        query.whereKey("groupOwner", equalTo:PFObject(withoutDataWithClassName: "Groups", objectId: "title"))
+        query.findObjectsInBackgroundWithBlock {
+            
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            
+            if error == nil {
+                
+                // The find succeeded.
+                
+                println("Successfully retrieved \(objects.count) scores.")
+                
+                // Do something with the found objects
+                
+                if let objects = objects as? [PFObject] {
+                    
+                    for object in objects {
+                        
+                        println(object.objectId)
+                        
+                        self.typedItems.append(object["itemName"] as String)
+                        
+                    }
+                    
+                }
+                
+                println("Refreshing")
+                self.refresher.endRefreshing()
+                self.tableView.reloadData()
+                
+            } else {
+                
+                // Log details of the failure
+                
+                println("Error: \(error) \(error.userInfo!)")
+                
+            }
+            
+        }
+        
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
+    
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.typedItems.count
     }
     
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell1") as UITableViewCell
         cell.textLabel?.text = self.typedItems[indexPath.row]
         println("cell for row \(indexPath.row)")
         cell.showsReorderControl = true
@@ -97,14 +147,17 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
         return cell
     }
     
+    
     override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath: NSIndexPath?) {
         var selectedItem = self.typedItems[indexPath!.row]
         println("selectRow: \(indexPath!.row), selectedGroup \(selectedItem)")
     }
     
+    
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true //yes the tableview can be reordered
     }
+    
     
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         // update the item in my data source by first removing at the from index, then inserting at the to index.

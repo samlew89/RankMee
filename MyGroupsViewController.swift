@@ -13,7 +13,6 @@ import UIKit
 class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
     
     var users = [""]
-
     var typedGroups:[String] = []
     
     //to refresh
@@ -69,9 +68,7 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
             
     }))
         
-        
-    
-    }
+  }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +82,7 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
         self.tableView.addSubview(refresher)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+       
     }
     
     func updateUsers() {
@@ -95,6 +92,8 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
         query.findObjectsInBackgroundWithBlock ({ (objects:[AnyObject]!, error:NSError!) -> Void in
             self.users.removeAll(keepCapacity:true)
         })
+        
+        
         
     }
 

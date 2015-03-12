@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyGroupsViewController.swift"
-            timestampString = "447742896.072263"
+            timestampString = "447831299.307789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187">
+            startingLineNumber = "186"
+            endingLineNumber = "186">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -56,13 +56,145 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RankMee/RankingListViewController.swift"
-            timestampString = "447775913.620428"
+            timestampString = "447831299.307789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "RankingListViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyGroupsViewController.swift"
+            timestampString = "447777808.046781"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "MyGroupsViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankMee.MyGroupsViewController.typedGroups.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "RankMee"
+                  urlString = "file:///Users/samlewis/Desktop/Developer/RankMee/MyGroupsViewController.swift"
+                  timestampString = "447777737.255574"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankMee.MyGroupsViewController.typedGroups.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "RankMee"
+                  urlString = "file:///Users/samlewis/Desktop/Developer/RankMee/MyGroupsViewController.swift"
+                  timestampString = "447777737.342294"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankMee.MyGroupsViewController.typedGroups.materializeForSet : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "RankMee"
+                  urlString = "file:///Users/samlewis/Desktop/Developer/RankMee/MyGroupsViewController.swift"
+                  timestampString = "447777737.342628"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankMee.MyGroupsViewController.init (RankMee.MyGroupsViewController.Type)(style : C.UITableViewStyle) -&gt; RankMee.MyGroupsViewController"
+                  moduleName = "RankMee"
+                  urlString = "file:///Users/samlewis/Desktop/Developer/RankMee/MyGroupsViewController.swift"
+                  timestampString = "447777737.344008"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "345">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankMee.MyGroupsViewController.init (RankMee.MyGroupsViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; RankMee.MyGroupsViewController"
+                  moduleName = "RankMee"
+                  urlString = "file:///Users/samlewis/Desktop/Developer/RankMee/MyGroupsViewController.swift"
+                  timestampString = "447777737.344595"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "338">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankMee.MyGroupsViewController.init (RankMee.MyGroupsViewController.Type)() -&gt; RankMee.MyGroupsViewController"
+                  moduleName = "RankMee"
+                  urlString = "file:///Users/samlewis/Desktop/Developer/RankMee/MyGroupsViewController.swift"
+                  timestampString = "447777737.34481"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "334">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankMee.MyGroupsViewController.init (RankMee.MyGroupsViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; RankMee.MyGroupsViewController"
+                  moduleName = "RankMee"
+                  urlString = "file:///Users/samlewis/Desktop/Developer/RankMee/MyGroupsViewController.swift"
+                  timestampString = "447777737.345027"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "345">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankMee/RankingListViewController.swift"
+            timestampString = "447829526.033099"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "addItem(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
