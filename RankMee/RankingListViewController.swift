@@ -40,7 +40,7 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
             var itemRank:PFObject = PFObject(className: "RankedItems")
             
             itemRank["itemName"] = newItem
-            itemRank["groupOwner"] = PFObject(withoutDataWithClassName: "Groups", objectId: "title")
+            itemRank["groupOwner"] = PFObject(withoutDataWithObjectId: "titles")
             itemRank.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError!) -> Void in
                 if (success) {
@@ -62,6 +62,7 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.editing = !self.editing
         self.navigationItem.title = "List"
         println(PFUser.currentUser())
         updateUsers()
@@ -161,9 +162,10 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
     
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         // update the item in my data source by first removing at the from index, then inserting at the to index.
-        let item : String = typedItems[sourceIndexPath.row];
+        var itemToMove : String = typedItems[sourceIndexPath.row];
         typedItems.removeAtIndex(sourceIndexPath.row);
-        typedItems.insert(item, atIndex: destinationIndexPath.row)
+        typedItems.insert(itemToMove, atIndex: destinationIndexPath.row)
+        println("switched cell: \(sourceIndexPath.row) with cell: \(destinationIndexPath.row)")
         
     }
 

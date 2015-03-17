@@ -88,7 +88,6 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
     func updateUsers() {
 
         var query = PFUser.query()
-        
         query.findObjectsInBackgroundWithBlock ({ (objects:[AnyObject]!, error:NSError!) -> Void in
             self.users.removeAll(keepCapacity:true)
         })
