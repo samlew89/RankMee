@@ -164,10 +164,11 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "eachgroupseg") {
         var rankingListViewController = segue.destinationViewController as? RankingListViewController
         var groupVC = sender as MyGroupsViewController
         rankingListViewController!.group = groupVC.selectedGroup
-        
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
