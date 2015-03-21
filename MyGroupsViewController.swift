@@ -13,8 +13,8 @@ import UIKit
 class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
     
     var users = [""]
-    var typedGroups:[String] = []
-    
+    var typedGroupObjects:[PFObject] = []
+    var selectedGroup:PFObject?
     //to refresh
     var refresher = UIRefreshControl()
     
@@ -61,7 +61,7 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
                 }
             }
 
-            self.typedGroups.append(newGroup)
+            self.typedGroupObjects.append(group)
             
             self.tableView.reloadData()
             
@@ -75,25 +75,14 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
         
         // Gets/Saves details of current user using core data
         println(PFUser.currentUser())
-        updateUsers()
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refresher)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        refresh()
        
-    }
-    
-    func updateUsers() {
-
-        var query = PFUser.query()
-        query.findObjectsInBackgroundWithBlock ({ (objects:[AnyObject]!, error:NSError!) -> Void in
-            self.users.removeAll(keepCapacity:true)
-        })
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,6 +103,8 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
                 
                 println("Successfully retrieved \(objects.count) scores.")
                 
+                self.typedGroupObjects = []
+                
                 // Do something with the found objects
                 
                 if let objects = objects as? [PFObject] {
@@ -122,7 +113,7 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
                         
                         println(object.objectId)
                         
-                        self.typedGroups.append(object["title"] as String)
+                        self.typedGroupObjects.append(object)
                         
                     }
                     
@@ -152,24 +143,30 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.typedGroups.count
+        return self.typedGroupObjects.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        cell.textLabel?.text = self.typedGroups[indexPath.row]
+        var groupObject:PFObject = self.typedGroupObjects[indexPath.row] as PFObject
+        cell.textLabel?.text = groupObject["title"]! as? String
         println("cell for row \(indexPath.row)")
         
         return cell
     }
     
     override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath: NSIndexPath?) {
-        var selectedGroup = self.typedGroups[indexPath!.row]
-        println("selectRow: \(indexPath!.row), selectedGroup \(selectedGroup)")
-        var groupsViewController = RankingListViewController()
-        groupsViewController.groupName = selectedGroup
+        var selectedGroupObject = self.typedGroupObjects[indexPath!.row]
+        println("selectRow: \(indexPath!.row), selectedGroupObject \(selectedGroupObject)")
+        self.selectedGroup = selectedGroupObject
         self.performSegueWithIdentifier("eachgroupseg", sender: self)
-        
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var rankingListViewController = segue.destinationViewController as? RankingListViewController
+        var groupVC = sender as MyGroupsViewController
+        rankingListViewController!.group = groupVC.selectedGroup
         
     }
     
@@ -180,6 +177,5 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
             
         }
     }
-    
 }
 

@@ -13,8 +13,7 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
     
     var typedItems:[String] = []
     var users = [""]
-    var groupName = ""
-    var groupId = ""
+    var group: PFObject? = nil
     var refresher = UIRefreshControl()
     
     
@@ -40,7 +39,7 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
             var itemRank:PFObject = PFObject(className: "RankedItems")
             
             itemRank["itemName"] = newItem
-            itemRank["groupOwner"] = PFObject(withoutDataWithObjectId: "titles")
+            itemRank["groupOwner"] = self.group!
             itemRank.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError!) -> Void in
                 if (success) {
@@ -65,20 +64,14 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
         self.editing = !self.editing
         self.navigationItem.title = "List"
         println(PFUser.currentUser())
-        updateUsers()
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refresher)
+        self.refresh()
     }
     
-    func updateUsers() {
-        
-        var query = PFUser.query()
-        query.findObjectsInBackgroundWithBlock ({ (objects:[AnyObject]!, error:NSError!) -> Void in
-            self.users.removeAll(keepCapacity:true)
-        })
-    }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -88,7 +81,7 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
     func refresh() {
         
         var query = PFQuery(className:"RankedItems")
-        query.whereKey("groupOwner", equalTo:PFObject(withoutDataWithClassName: "Groups", objectId: "title"))
+        query.whereKey("groupOwner", equalTo: self.group)
         query.findObjectsInBackgroundWithBlock {
             
             (objects: [AnyObject]!, error: NSError!) -> Void in
@@ -98,6 +91,7 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
                 // The find succeeded.
                 
                 println("Successfully retrieved \(objects.count) scores.")
+                self.typedItems = []
                 
                 // Do something with the found objects
                 
