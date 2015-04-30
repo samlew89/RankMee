@@ -88,7 +88,7 @@
             </objects>
             <point key="canvasLocation" x="731.5" y="143.5"/>
         </scene>
-        <!--My Groups-->
+        <!--RankMee-->
         <scene sceneID="YfR-Mo-8b3">
             <objects>
                 <tableViewController id="LIW-F2-Z45" customClass="MyGroupsViewController" customModule="RankMee" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,7 +114,7 @@
                             <outlet property="delegate" destination="LIW-F2-Z45" id="3xR-FQ-jse"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Groups" id="eeR-cD-aRP">
+                    <navigationItem key="navigationItem" title="RankMee" id="eeR-cD-aRP">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="EKg-2K-4oy">
                             <connections>
                                 <action selector="logout:" destination="LIW-F2-Z45" id="3O9-io-045"/>

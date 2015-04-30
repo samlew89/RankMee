@@ -11,7 +11,7 @@ import UIKit
 
 class RankingListViewController: UITableViewController, UIAlertViewDelegate {
     
-    var typedItems:[String] = []
+    var typedItems:[PFObject] = []
     var users = [""]
     var group: PFObject? = nil
     var refresher = UIRefreshControl()
@@ -41,7 +41,8 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
             
             itemRank["itemName"] = newItem
             itemRank["groupOwner"] = self.group!
-            //itemRank["rank"] =
+            itemRank["rank"] = self.typedItems.count
+            //itemRank.pinInBackgroundWithBlock(object)
             itemRank.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError!) -> Void in
                 if (success) {
@@ -52,7 +53,7 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
                 }
             }
 
-            self.typedItems.append(newItem)
+            self.typedItems.append(itemRank)
             
             self.tableView.reloadData()
 
@@ -64,7 +65,7 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.editing = !self.editing
-        self.navigationItem.title = "List"
+        //self.navigationItem.title = 
         println(PFUser.currentUser())
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -84,6 +85,7 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
         
         var query = PFQuery(className:"RankedItems")
         query.whereKey("groupOwner", equalTo: self.group)
+        query.orderByAscending("rank")
         query.findObjectsInBackgroundWithBlock {
             
             (objects: [AnyObject]!, error: NSError!) -> Void in
@@ -103,7 +105,7 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
                         
                         println(object.objectId)
                         
-                        self.typedItems.append(object["itemName"] as String)
+                        self.typedItems.append(object)
                         
                     }
                     
@@ -137,8 +139,11 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell1") as UITableViewCell
-        cell.textLabel?.text = self.typedItems[indexPath.row]
-        println("cell for row \(indexPath.row)")
+        var itemRank:PFObject = self.typedItems[indexPath.row]
+        var rank : Int = itemRank["rank"] as Int
+        var name : String = itemRank["itemName"] as String
+        cell.textLabel?.text = "\(rank). \(name)"
+        println("rank number \(rank)")
         cell.showsReorderControl = true
         
         return cell
@@ -159,10 +164,23 @@ class RankingListViewController: UITableViewController, UIAlertViewDelegate {
     
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         // update the item in my data source by first removing at the from index, then inserting at the to index.
-        var itemToMove : String = typedItems[sourceIndexPath.row]
+        
+        var itemToMove : PFObject = typedItems[sourceIndexPath.row]
+        itemToMove["rank"] = destinationIndexPath.row
         typedItems.removeAtIndex(sourceIndexPath.row)
         typedItems.insert(itemToMove, atIndex: destinationIndexPath.row)
         println("switched cell: \(sourceIndexPath.row) with cell: \(destinationIndexPath.row)")
+        /*itemToMove.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError!) -> Void in
+            if (success) {
+                
+            } else {
+                // There was a problem, check error.description
+                println("Error adding group to parse")
+            }
+        }*/
+        self.tableView.reloadData()
+
         
     }
 

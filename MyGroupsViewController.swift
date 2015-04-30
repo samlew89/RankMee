@@ -72,7 +72,6 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Gets/Saves details of current user using core data
         println(PFUser.currentUser())
         refresher = UIRefreshControl()
@@ -89,6 +88,7 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
         super.didReceiveMemoryWarning()
     }
     
+ 
     func refresh() {
         
         var query = PFQuery(className:"Groups")
@@ -178,5 +178,6 @@ class MyGroupsViewController: UITableViewController, UIAlertViewDelegate {
             
         }
     }
+    
 }
 
